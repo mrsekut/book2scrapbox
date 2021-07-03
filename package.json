@@ -1,0 +1,21 @@
+{
+  "name": "book2scrapbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "json": "node makeJson.mjs $(ls $PDF_DIR/*.pdf | peco)",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.8.0",
+    "gyazo-api": "^0.3.1",
+    "pdfjs-dist": "^2.8.335"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
+}

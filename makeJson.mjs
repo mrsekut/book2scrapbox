@@ -16,6 +16,8 @@ const pages = await Promise.all(
   [...Array(doc.numPages).keys()].map((i) => doc.getPage(i + 1))
 );
 
+// ホントは中身の画像を見つけてwidth heightを取ったほうが良さそうだが、だるいので適当に拡大する
+const scale = 300 / 72;
 const [width, height] = pages
   .map((page) => {
     const viewport = page.getViewport();
@@ -27,7 +29,8 @@ const [width, height] = pages
       return [Math.max(width, w), Math.max(height, h)];
     },
     [0, 0]
-  );
+  )
+  .map((len) => len * scale);
 console.log({ width, height });
 
 const canvas = nodeCanvas.createCanvas(width, height);
@@ -49,7 +52,7 @@ for (let [i, page] of pages.map((page, i) => [i, page])) {
 
   await page.render({
     canvasContext: context,
-    viewport: page.getViewport({ scale: 1 }),
+    viewport: page.getViewport({ scale }),
   }).promise;
 
   const b = canvas.toBuffer();

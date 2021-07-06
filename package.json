@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "json": "node makeJson.mjs $(ls $PDF_DIR/*.pdf | peco)",
+    "json": "node makeJson.mjs \"$(ls \"$PDF_DIR\"/*.pdf | peco)\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

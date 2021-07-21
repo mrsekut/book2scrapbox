@@ -2,6 +2,10 @@ import fs from "fs/promises";
 import path from "path";
 import pdfjs from "pdfjs-dist/legacy/build/pdf.js";
 import nodeCanvas from "canvas";
+
+import * as dotenv from 'dotenv'
+dotenv.config();
+
 import Gyazo from "gyazo-api";
 const client = new Gyazo(process.env.GYAZO_TOKEN);
 

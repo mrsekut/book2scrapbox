@@ -1,4 +1,6 @@
 import request from "request";
+import * as dotenv from 'dotenv'
+dotenv.config();
 
 export function image(query = {}) {
   return new Promise((resolve, reject) => {

@@ -45,7 +45,7 @@ const json = { pages: [] };
 try {
   await fs.stat(`out/${filename}`);
 } catch {
-  fs.mkdir(`out/${filename}`);
+  await fs.mkdir(`out/${filename}`, { recursive: true });
 }
 
 const keta = pages.length.toString().length;
